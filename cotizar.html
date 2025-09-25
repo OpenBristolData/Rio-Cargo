@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tutorial</title>
+    <title>cotizar</title>
     <!-- Bootstrap 4 -->
     <link
       rel="stylesheet"
@@ -203,78 +203,7 @@
           transform: translateY(0);
         }
       }
-      .video-card {
-        background: #031547;
-        border-radius: 15px;
-        overflow: hidden;
-        margin-bottom: 20px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease;
-      }
 
-      .video-card:hover {
-        transform: translateY(-5px);
-      }
-
-      .video-container {
-        position: relative;
-        padding-top: 56.25%; /* 16:9 Aspect Ratio */
-        background: #001a4b;
-      }
-
-      .video-container video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-
-      .video-info {
-        padding: 15px;
-      }
-
-      .video-title {
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: #ffcc00;
-      }
-
-      .video-description {
-        font-size: 14px;
-        margin-bottom: 15px;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .see-more {
-        color: #ff9900;
-        font-weight: bold;
-        text-decoration: none;
-        display: inline-block;
-        margin-top: 10px;
-      }
-
-      .see-more:hover {
-        color: #ffcc00;
-        text-decoration: underline;
-      }
-
-      .section-divider {
-        border-top: 2px solid #6c7ecb;
-        margin: 40px 0;
-      }
-
-      .gallery-title {
-        text-align: center;
-        margin: 30px 0;
-        color: white;
-        font-weight: bold;
-      }
       /* Custom alert style */
       .custom-alert {
         position: fixed;
@@ -298,6 +227,44 @@
       .alert-success {
         background-color: #d4edda;
         color: #155724;
+      }
+      .card-custom h2 {
+        font-weight: bold;
+      }
+
+      .btn {
+        border-radius: 20px;
+        padding: 8px 18px;
+        font-weight: 600;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        border: none;
+      }
+
+      .btn-danger {
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .form-control {
+        border-radius: 12px;
+      }
+      /* Non-selected country and city buttons */
+      .country-btn.btn-outline-light,
+      .city-btn.btn-outline-light {
+        background-color: #00205d; /* dark blue background */
+        color: white; /* white text */
+        border: 1px solid #ffffff; /* optional white border */
+      }
+
+      /* Hover effect for non-selected buttons */
+      .country-btn.btn-outline-light:hover,
+      .city-btn.btn-outline-light:hover {
+        background-color: #007bff; /* slightly brighter on hover */
+        color: #ffd700; /* optional hover text color */
       }
 
       /* Responsive adjustments */
@@ -351,17 +318,13 @@
     </style>
   </head>
   <body>
-    <!-- Custom Alert Container -->
+    <!-- Toast container -->
     <div
-      id="alertContainer"
-      class="custom-alert alert alert-success"
-      role="alert"
-      style="display: none"
+      aria-live="polite"
+      aria-atomic="true"
+      style="position: fixed; top: 1rem; right: 1rem; z-index: 1080"
     >
-      <div class="d-flex align-items-center">
-        <i class="fas fa-check-circle mr-2"></i>
-        <span id="alertMessage"></span>
-      </div>
+      <div id="toast-container"></div>
     </div>
 
     <!-- Navbar -->
@@ -391,7 +354,6 @@
               <li><a href="#">Cuentas Bancarias</a></li>
             </ul>
           </li>
-
           <!-- Liquidación with dropdown -->
           <li class="dropdown">
             <a href="#">Guías y Casilleros <i class="fas fa-caret-down"></i></a>
@@ -402,6 +364,7 @@
               <li><a href="./cotizar.html">Cotizador</a></li>
             </ul>
           </li>
+
           <!-- Wishlist (normal) -->
           <li><a href="#">Wishlist</a></li>
         </ul>
@@ -468,250 +431,258 @@
     </div>
 
     <!-- Heading outside container -->
-    <div class="container">
-      <h1 class="gallery-title">Tutorial</h1>
+    <h2 class="text-center text-white mt-3 font-weight-bold pb-3">Cotizar</h2>
 
-      <div class="container mt-3">
-        <div class="row">
-          <!-- Form Section -->
-          <div class="col-12">
-            <div class="card-custom">
-              <!-- First Row -->
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="video-card">
-                    <div class="video-container">
-                      <video controls>
-                        <source
-                          src="./src/Video/samplevideo.mp4"
-                          type="video/mp4"
-                        />
-                        Tu navegador no soporta el elemento de video.
-                      </video>
-                    </div>
-                    <div class="video-info">
-                      <div class="video-title">Video title goes here</div>
-                      <div class="video-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam auctor, nisl eu ultricies lacinia, nunc nisl
-                        aliquam nisl, eu aliquam nisl nunc eu nisl.
-                      </div>
-                      <a href="./Video2.html" class="see-more"
-                        >See More <i class="fas fa-arrow-right"></i
-                      ></a>
-                    </div>
-                  </div>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-12">
+          <!-- cotizar Section -->
+          <div class="card-custom text-center">
+            <h2 class="mb-4">Calcula tu importación</h2>
+
+            <!-- Country buttons -->
+            <div class="mb-3">
+              <button class="btn btn-primary mr-2 country-btn active">
+                <img
+                  src="https://flagcdn.com/w20/us.png"
+                  alt="USA"
+                  class="mr-1"
+                />
+                Desde USA
+              </button>
+              <button class="btn btn-outline-light mr-2 country-btn">
+                <img
+                  src="https://flagcdn.com/w20/es.png"
+                  alt="España"
+                  class="mr-1"
+                />
+                Desde España
+              </button>
+              <button class="btn btn-outline-light country-btn">
+                <img
+                  src="https://flagcdn.com/w20/cn.png"
+                  alt="China"
+                  class="mr-1"
+                />
+                Desde China
+              </button>
+            </div>
+
+            <!-- City buttons -->
+            <div class="mb-4">
+              <button class="btn btn-primary mr-2 city-btn active">
+                Guayaquil
+              </button>
+              <button class="btn btn-outline-light mr-2 city-btn">Quito</button>
+              <button class="btn btn-outline-light mr-2 city-btn">
+                Cuenca
+              </button>
+              <button class="btn btn-outline-light city-btn">
+                Resto del país
+              </button>
+            </div>
+
+            <!-- Bootstrap alerts (hidden initially) -->
+            <div id="alert-container"></div>
+
+            <div class="row">
+              <!-- Left: form -->
+              <div class="col-md-6 text-left">
+                <h5 class="mb-3 font-weight-bold text-center" id="cityHeading">
+                  Importación a Guayaquil
+                </h5>
+
+                <div class="form-group">
+                  <label>Valor del artículo individual</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="valorInput"
+                    placeholder="Valor"
+                  />
+                  <small class="text-light">Max. $400</small>
                 </div>
-                <div class="col-md-4">
-                  <div class="video-card">
-                    <div class="video-container">
-                      <video controls>
-                        <source
-                          src="./src/Video/samplevideo.mp4"
-                          type="video/mp4"
-                        />
-                        Tu navegador no soporta el elemento de video.
-                      </video>
-                    </div>
-                    <div class="video-info">
-                      <div class="video-title">Video title goes here</div>
-                      <div class="video-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam auctor, nisl eu ultricies lacinia, nunc nisl
-                        aliquam nisl, eu aliquam nisl nunc eu nisl.
-                      </div>
-                      <a href="./Video2.html" class="see-more"
-                        >See More <i class="fas fa-arrow-right"></i
-                      ></a>
-                    </div>
-                  </div>
+
+                <div class="form-group">
+                  <label>Peso en libras</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="pesoInput"
+                    placeholder="Peso"
+                  />
+                  <small class="text-light">Max. 8.60 lb</small>
                 </div>
-                <div class="col-md-4">
-                  <div class="video-card">
-                    <div class="video-container">
-                      <video controls>
-                        <source
-                          src="./src/Video/samplevideo.mp4"
-                          type="video/mp4"
-                        />
-                        Tu navegador no soporta el elemento de video.
-                      </video>
-                    </div>
-                    <div class="video-info">
-                      <div class="video-title">Video title goes here</div>
-                      <div class="video-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam auctor, nisl eu ultricies lacinia, nunc nisl
-                        aliquam nisl, eu aliquam nisl nunc eu nisl.
-                      </div>
-                      <a href="./Video2.html" class="see-more"
-                        >See More <i class="fas fa-arrow-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
+
+                <button class="btn btn-danger btn-block" id="calcularBtn">
+                  Calcular
+                </button>
               </div>
 
-              <hr class="section-divider" />
-
-              <!-- Second Row -->
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="video-card">
-                    <div class="video-container">
-                      <video controls>
-                        <source
-                          src="./src/Video/samplevideo.mp4"
-                          type="video/mp4"
-                        />
-                        Tu navegador no soporta el elemento de video.
-                      </video>
-                    </div>
-                    <div class="video-info">
-                      <div class="video-title">Video title goes herey</div>
-                      <div class="video-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam auctor, nisl eu ultricies lacinia, nunc nisl
-                        aliquam nisl, eu aliquam nisl nunc eu nisl.
-                      </div>
-                      <a href="./Video2.html" class="see-more"
-                        >See More <i class="fas fa-arrow-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="video-card">
-                    <div class="video-container">
-                      <video controls>
-                        <source
-                          src="./src/Video/samplevideo.mp4"
-                          type="video/mp4"
-                        />
-                        Tu navegador no soporta el elemento de video.
-                      </video>
-                    </div>
-                    <div class="video-info">
-                      <div class="video-title">Video title goes here</div>
-                      <div class="video-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam auctor, nisl eu ultricies lacinia, nunc nisl
-                        aliquam nisl, eu aliquam nisl nunc eu nisl.
-                      </div>
-                      <a href="./Video2.html" class="see-more"
-                        >See More <i class="fas fa-arrow-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="video-card">
-                    <div class="video-container">
-                      <video controls>
-                        <source
-                          src="./src/Video/samplevideo.mp4"
-                          type="video/mp4"
-                        />
-                        Tu navegador no soporta el elemento de video.
-                      </video>
-                    </div>
-                    <div class="video-info">
-                      <div class="video-title">Video title goes here</div>
-                      <div class="video-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam auctor, nisl eu ultricies lacinia, nunc nisl
-                        aliquam nisl, eu aliquam nisl nunc eu nisl.
-                      </div>
-                      <a href="./Video2.html" class="see-more"
-                        >See More <i class="fas fa-arrow-right"></i
-                      ></a>
-                    </div>
-                  </div>
+              <!-- Right: Result -->
+              <div
+                class="col-md-6 d-flex align-items-center justify-content-center"
+              >
+                <div
+                  class="p-4 rounded w-100 text-center"
+                  style="
+                    background: #0050ff;
+                    min-height: 200px;
+                    color: white;
+                    border: 2px solid white;
+                  "
+                >
+                  <h5>Traer tu encargo te costará:</h5>
+                  <div id="resultado" class="display-3 my-3">$</div>
+                  <p class="small">
+                    El precio calculado es referencial<br />y no incluye IVA*
+                  </p>
                 </div>
               </div>
+            </div>
 
-              <hr class="section-divider" />
-
-              <!-- Third Row -->
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="video-card">
-                    <div class="video-container">
-                      <video controls>
-                        <source
-                          src="./src/Video/samplevideo.mp4"
-                          type="video/mp4"
-                        />
-                        Tu navegador no soporta el elemento de video.
-                      </video>
-                    </div>
-                    <div class="video-info">
-                      <div class="video-title">Video title goes here</div>
-                      <div class="video-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam auctor, nisl eu ultricies lacinia, nunc nisl
-                        aliquam nisl, eu aliquam nisl nunc eu nisl.
-                      </div>
-                      <a href="./Video2.html" class="see-more"
-                        >See More <i class="fas fa-arrow-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="video-card">
-                    <div class="video-container">
-                      <video controls>
-                        <source
-                          src="./src/Video/samplevideo.mp4"
-                          type="video/mp4"
-                        />
-                        Tu navegador no soporta el elemento de video.
-                      </video>
-                    </div>
-                    <div class="video-info">
-                      <div class="video-title">Video title goes here</div>
-                      <div class="video-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam auctor, nisl eu ultricies lacinia, nunc nisl
-                        aliquam nisl, eu aliquam nisl nunc eu nisl.
-                      </div>
-                      <a href="./Video2.html" class="see-more"
-                        >See More <i class="fas fa-arrow-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="video-card">
-                    <div class="video-container">
-                      <video controls>
-                        <source
-                          src="./src/Video/samplevideo.mp4"
-                          type="video/mp4"
-                        />
-                        Tu navegador no soporta el elemento de video.
-                      </video>
-                    </div>
-                    <div class="video-info">
-                      <div class="video-title">Video title goes here</div>
-                      <div class="video-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam auctor, nisl eu ultricies lacinia, nunc nisl
-                        aliquam nisl, eu aliquam nisl nunc eu nisl.
-                      </div>
-                      <a href="./Video2.html" class="see-more"
-                        >See More <i class="fas fa-arrow-right"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="mt-4">
+              <p id="noteText" class="text-white-500 small mt-3">
+                * Para cotizaciones de artículos individuales mayores a $400,00
+                y/o 4kg por favor enviar un correo a
+                <a
+                  href="mailto:cotizar@riocargoexpress.com"
+                  class="text-warning"
+                  >cotizar@riocargoexpress.com</a
+                >
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      function showToast(message, type = "danger") {
+        const toastId = "toast-" + Date.now();
+        const bgClass = type === "success" ? "bg-success" : "bg-danger";
+
+        const toastHTML = `
+      <div id="${toastId}" class="toast ${bgClass} text-white" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000" style="min-width: 250px;">
+        <div class="toast-header ${bgClass} text-white">
+          <strong class="mr-auto">${
+            type === "success" ? "Éxito" : "Error"
+          }</strong>
+          <small>Ahora</small>
+          <button type="button" class="ml-2 mb-1 close text-white" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body">
+          ${message}
+        </div>
+      </div>
+    `;
+
+        const container = document.getElementById("toast-container");
+        container.insertAdjacentHTML("beforeend", toastHTML);
+
+        const toastEl = document.getElementById(toastId);
+        $(toastEl).toast("show");
+
+        // Remove from DOM after hidden
+        $(toastEl).on("hidden.bs.toast", function () {
+          toastEl.remove();
+        });
+      }
+
+      // Toggle active state for buttons
+      document.querySelectorAll(".country-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // toggle button styles
+          document.querySelectorAll(".country-btn").forEach((b) => {
+            b.classList.remove("btn-primary", "active");
+            b.classList.add("btn-outline-light");
+          });
+          btn.classList.add("btn-primary", "active");
+          btn.classList.remove("btn-outline-light");
+
+          // check which country
+          const country = btn.textContent.trim();
+
+          if (country === "Desde China") {
+            // Hide city buttons
+            document.querySelectorAll(".city-btn").forEach((cityBtn) => {
+              cityBtn.style.display = "none";
+            });
+
+            // Update heading
+            document.getElementById("cityHeading").innerHTML =
+              'Importación desde CHINA <img src="https://flagcdn.com/w20/cn.png" alt="China" style="width:30px; vertical-align:middle; margin-right:5px;">  hacia cualquier ciudad de Ecuador';
+
+            // Update note text
+            document.getElementById("noteText").textContent =
+              "Impuesto aduanero:\n¿No sabes cuánto pagarías de impuestos por tu producto?\n¡Tranquilo! Envíanos un correo a cotizar@riocargoexpress.com con toda la información de lo que quieres importar y te enviamos una cotización completa del envío. Si vas a comprar directamente desde China, no olvides mencionarlo.";
+          } else {
+            // Show city buttons again
+            document.querySelectorAll(".city-btn").forEach((cityBtn) => {
+              cityBtn.style.display = "inline-block";
+            });
+
+            // Reset heading to default (Guayaquil by default)
+            document.getElementById("cityHeading").textContent =
+              "Importación a Guayaquil";
+
+            // Reset note text
+            document.getElementById("noteText").textContent =
+              "* Para cotizaciones de artículos individuales mayores a $400,00 y/o 4kg por favor enviar un correo a cotizar@riocargoexpress.com";
+          }
+        });
+      });
+
+      document.querySelectorAll(".city-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // toggle button styles
+          document.querySelectorAll(".city-btn").forEach((b) => {
+            b.classList.remove("btn-primary", "active");
+            b.classList.add("btn-outline-light");
+          });
+          btn.classList.add("btn-primary", "active");
+          btn.classList.remove("btn-outline-light");
+
+          // update heading
+          const cityName = btn.textContent.trim();
+          document.getElementById(
+            "cityHeading"
+          ).textContent = `Importación a ${cityName}`;
+        });
+      });
+
+      // Handle calculate
+      document
+        .getElementById("calcularBtn")
+        .addEventListener("click", function () {
+          const valor = parseFloat(document.getElementById("valorInput").value);
+          const peso = parseFloat(document.getElementById("pesoInput").value);
+          const resultado = document.getElementById("resultado");
+
+          // Reset result
+          resultado.textContent = "$";
+
+          if (isNaN(valor) || isNaN(peso)) {
+            showToast("Por favor, complete ambos campos antes de calcular.");
+            return;
+          }
+
+          if (valor > 400) {
+            showToast("El valor del artículo no puede superar los $400.");
+            return;
+          }
+
+          if (peso > 8.6) {
+            showToast("El peso no puede superar las 8.60 lb.");
+            return;
+          }
+
+          // Valid inputs → show result
+          resultado.textContent = "$100.00";
+          showToast("Cálculo realizado correctamente.", "success");
+        });
+    </script>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

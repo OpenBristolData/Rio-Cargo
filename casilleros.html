@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Registrar Paquete</title>
+    <title>Casilleros</title>
     <!-- Bootstrap 4 -->
     <link
       rel="stylesheet"
@@ -362,6 +362,58 @@
         background-color: #d4edda;
         color: #155724;
       }
+      .mi-casillero-rectangle {
+        background-color: #0084f8;
+        border-radius: 12px; /* Slightly rounded corners */
+        padding: 20px;
+        color: white;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        height: 100%; /* Match column height */
+      }
+
+      .info-box {
+        background-color: #fff9c4; /* light yellow */
+        border-radius: 12px;
+        color: #000;
+        font-size: 14px;
+      }
+
+      .info-box ul {
+        padding-left: 20px;
+      }
+
+      .info-box a.info-link {
+        color: #ff9900;
+        text-decoration: underline;
+      }
+
+      .info-box a.info-link:hover {
+        color: #cc7a00;
+      }
+      .btn-map {
+        background-color: #007bff; /* blue */
+        color: white;
+        font-weight: bold;
+        padding: 8px 25px;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .btn-map:hover {
+        background-color: #0056b3;
+        color: white;
+        text-decoration: none;
+      }
+      .flag-img {
+        width: 20px;
+        height: auto;
+        margin-left: 5px;
+        vertical-align: middle;
+        border-radius: 3px;
+      }
 
       /* Responsive adjustments */
       @media (max-width: 992px) {
@@ -450,16 +502,6 @@
 
           <!-- Liquidación with dropdown -->
           <li class="dropdown">
-            <a href="#">Liquidación <i class="fas fa-caret-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Liquidaciones Pendientes</a></li>
-              <li><a href="#">Liquidaciones Canceladas</a></li>
-              <li><a href="#">Cuentas Bancarias</a></li>
-            </ul>
-          </li>
-
-          <!-- Guías y Casilleros with dropdown -->
-          <li class="dropdown">
             <a href="#">Guías y Casilleros <i class="fas fa-caret-down"></i></a>
             <ul class="dropdown-menu">
               <li><a href="./casilleros.html">Casilleros</a></li>
@@ -469,8 +511,18 @@
             </ul>
           </li>
 
+          <!-- Liquidación with dropdown -->
+          <li class="dropdown">
+            <a href="#">Liquidación <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Liquidaciones Pendientes</a></li>
+              <li><a href="#">Liquidaciones Canceladas</a></li>
+              <li><a href="#">Cuentas Bancarias</a></li>
+            </ul>
+          </li>
+
           <!-- Wishlist (normal) -->
-          <li><a href="#">WishList</a></li>
+          <li><a href="#">Wishlist</a></li>
         </ul>
 
         <!-- Nav icons -->
@@ -534,152 +586,376 @@
 
     <!-- Heading outside container -->
     <h2 class="text-center text-white mt-5 font-weight-bold pb-3">
-      Registrar paquete
+      Casilleros
     </h2>
 
     <div class="container mt-3">
       <div class="row">
-        <!-- Form Section -->
-        <div class="col-lg-8 col-md-7">
-          <div class="card-custom">
-            <form>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="tracking">Número de tracking</label>
-                  <input type="text" id="tracking" class="form-control" />
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="valor">Valor de la compra</label>
-                  <input type="text" id="valor" class="form-control" />
-                </div>
-              </div>
-
-              <label>Por favor suba su factura de compra</label>
+        <!-- Card 01 - Estados Unidos -->
+        <div class="col-lg-4 col-md-6 mb-3">
+          <div class="mi-casillero-rectangle">
+            <h5 class="mb-3 text-center font-weight-bold">
+              Estados Unidos – Miami 🇺🇸
+            </h5>
+            <div class="casillero-box">
               <div
-                class="upload-box"
-                id="uploadBox"
-                onclick="document.getElementById('fileInput').click()"
+                class="field d-flex justify-content-between align-items-center"
               >
-                Suelte los archivos aquí o haga click para cargar.
-              </div>
-              <input
-                type="file"
-                id="fileInput"
-                multiple
-                style="display: none"
-              />
-
-              <div class="form-row mt-3">
-                <div class="form-group col-md-4">
-                  <label>Gestión de pedido*</label><br />
-                  <label class="toggle-box">
-                    <input type="radio" name="pedido" /> Agrupar compras
-                  </label>
-                  <label class="toggle-box">
-                    <input type="radio" name="pedido" /> Embarque Inmediato
-                  </label>
+                <div>
+                  <div class="item-main">Nombre</div>
+                  <div class="item-sub">
+                    216258 - María Teresa Silva Pinoargote
+                  </div>
                 </div>
-                <div class="form-group col-md-4">
-                  <label>Detalles del empaque</label><br />
-                  <label class="toggle-box">
-                    <input type="checkbox" /> Más protección
-                  </label>
-                  <label class="toggle-box">
-                    <input type="checkbox" /> Revisión detallada
-                  </label>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Dirección</div>
+                  <div class="item-sub">12992 NW 42 Ave Ste 126</div>
                 </div>
-                <div class="form-group col-md-4">
-                  <label>Categoría</label><br />
-                  <label class="toggle-box">
-                    <input type="checkbox" /> Categoría B
-                  </label>
-                  <label class="toggle-box">
-                    <input type="checkbox" /> Categoría C
-                  </label>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Ciudad</div>
+                  <div class="item-sub">OPA LOCKA</div>
                 </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Estado</div>
+                  <div class="item-sub">FLORIDA</div>
+                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">ZIP</div>
+                  <div class="item-sub">33054-4403</div>
+                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Telf</div>
+                  <div class="item-sub">+1 305 9678269</div>
+                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
               </div>
 
-              <div class="form-group">
-                <label for="nota">Nota</label>
-                <input type="text" id="nota" class="form-control" />
+              <div class="text-center mt-3">
+                <a
+                  href="https://www.google.com/maps/place/RioCargo+Express+Miami/@25.8923067,-80.2683815,17z/data=!3m1!4b1!4m6!3m5!1s0x88d9b00fbaff9465:0xb715e88022ac8c78!8m2!3d25.8923067!4d-80.2683815!16s%2Fg%2F1hc18t1t_?entry=tts&g_ep=EgoyMDI1MDkxMC4wIPu8ASoASAFQAw%3D%3D&skid=5a20bbae-34cf-4b89-85cc-6d691bb4c10a"
+                  class="btn btn-map"
+                  >Ver en mapa</a
+                >
               </div>
 
-              <div class="form-group">
-                <label for="cupon">Cupón de descuento</label>
-                <input type="text" id="cupon" class="form-control" />
+              <div class="info-box mt-3 p-3">
+                <p><strong>Importante:</strong></p>
+                <ul class="mb-0">
+                  <li>Categorias B, C y G</li>
+                  <li>
+                    Envio directo
+                    <img
+                      src="https://flagcdn.com/us.svg"
+                      alt="USA Flag"
+                      class="flag-img"
+                    />
+                    <img
+                      src="https://flagcdn.com/ec.svg"
+                      alt="Ecuador Flag"
+                      class="flag-img"
+                    />
+                  </li>
+                </ul>
               </div>
-
-              <div class="text-center">
-                <button type="submit" class="btn btn-save">Guardar</button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
-        <!-- Mi Casillero -->
-        <div class="col-lg-4 col-md-5">
-          <div class="mi-casillero">
-            <h5 class="mb-3 text-center font-weight-bold">Mi casillero</h5>
 
+        <!-- Card 02 - España -->
+        <div class="col-lg-4 col-md-6 mb-3">
+          <div class="mi-casillero-rectangle">
+            <h5 class="mb-3 text-center font-weight-bold">
+              España – Madrid 🇪🇸
+            </h5>
             <div class="casillero-box">
-              <div class="field">
-                <div class="item-main">
-                  Nombre
-                  <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Nombre</div>
+                  <div class="item-sub">María Teresa Silva Pinoargote</div>
                 </div>
-                <div class="item-sub">
-                  571017 - Roxana Maria Castillo Ottati
-                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
               </div>
               <hr />
 
-              <div class="field">
-                <div class="item-main">
-                  Dirección
-                  <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Dirección</div>
+                  <div class="item-sub">
+                    Calle de Albasanz 52, Local B Izq 216258
+                  </div>
                 </div>
-                <div class="item-sub">12992 NW 42 Ave Ste 126</div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
               </div>
               <hr />
 
-              <div class="field">
-                <div class="item-main">
-                  Ciudad
-                  <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Ciudad</div>
+                  <div class="item-sub">Madrid</div>
                 </div>
-                <div class="item-sub">OPA LOCKA</div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
               </div>
               <hr />
 
-              <div class="field">
-                <div class="item-main">
-                  Estado
-                  <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Estado</div>
+                  <div class="item-sub">Madrid</div>
                 </div>
-                <div class="item-sub">FLORIDA</div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
               </div>
               <hr />
 
-              <div class="field">
-                <div class="item-main">
-                  Código Postal
-                  <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Codigo Postal</div>
+                  <div class="item-sub">28037</div>
                 </div>
-                <div class="item-sub">33054-4403</div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
               </div>
               <hr />
 
-              <div class="field">
-                <div class="item-main">
-                  Teléfono
-                  <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Telf</div>
+                  <div class="item-sub">+34 646552799</div>
                 </div>
-                <div class="item-sub">305 967 8269</div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Apartamento/Piso/Unidad</div>
+                  <div class="item-sub">RIOCARGO 216258</div>
+                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">País</div>
+                  <div class="item-sub">España</div>
+                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+
+              <div class="text-center mt-3">
+                <a
+                  href="https://www.google.com/maps/place/RioCargo+Express+Miami/@25.8923067,-80.2683815,17z/data=!3m1!4b1!4m6!3m5!1s0x88d9b00fbaff9465:0xb715e88022ac8c78!8m2!3d25.8923067!4d-80.2683815!16s%2Fg%2F1hc18t1t_?entry=tts&g_ep=EgoyMDI1MDkxMC4wIPu8ASoASAFQAw%3D%3D&skid=5a20bbae-34cf-4b89-85cc-6d691bb4c10a"
+                  class="btn btn-map"
+                  >Ver en mapa</a
+                >
+              </div>
+
+              <div class="info-box mt-3 p-3">
+                <p><strong>Importante:</strong></p>
+                <ul class="mb-0">
+                  <li>Categorias B, C y G</li>
+                  <li>
+                    Envio directo
+                    <img
+                      src="https://flagcdn.com/es.svg"
+                      alt="USA Flag"
+                      class="flag-img"
+                    />
+                    <img
+                      src="https://flagcdn.com/ec.svg"
+                      alt="Ecuador Flag"
+                      class="flag-img"
+                    />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 03 - China -->
+        <div class="col-lg-4 col-md-6 mb-3">
+          <div class="mi-casillero-rectangle">
+            <h5 class="mb-3 text-center font-weight-bold">
+              China – Shenzhen 🇨🇳
+            </h5>
+            <div class="casillero-box">
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Nombre</div>
+                  <div class="item-sub">
+                    Macro Logistics – RIOCARGO María Teresa Silva Pinoargote
+                  </div>
+                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Dirección</div>
+                  <div class="item-sub">
+                    Jinxiu Garden, Xixiang Street, Bao’an District
+                  </div>
+                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Ciudad</div>
+                  <div class="item-sub">Shenzhen</div>
+                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Estado</div>
+                  <div class="item-sub">Guangdong</div>
+                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Codigo Postal</div>
+                  <div class="item-sub">518100</div>
+                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Telf</div>
+                  <div class="item-sub">+86 13430587809</div>
+                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">Apartamento/Piso/Unidad</div>
+                  <div class="item-sub">118-120, 1st floor, Building 3</div>
+                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+              <hr />
+
+              <div
+                class="field d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <div class="item-main">País</div>
+                  <div class="item-sub">China</div>
+                </div>
+                <button class="copy-btn"><i class="fas fa-copy"></i></button>
+              </div>
+
+              <div class="text-center mt-3">
+                <a href="#" class="btn btn-map">Ver en mapa</a>
+              </div>
+
+              <div class="info-box mt-3 p-3">
+                <p><strong>Importante:</strong></p>
+                <ul class="mb-0">
+                  <li>Categoria C</li>
+                  <li>
+                    Envio directo
+                    <img
+                      src="https://flagcdn.com/cn.svg"
+                      alt="USA Flag"
+                      class="flag-img"
+                    />
+                    <img
+                      src="https://flagcdn.com/ec.svg"
+                      alt="Ecuador Flag"
+                      class="flag-img"
+                    />
+                  </li>
+                  <li>
+                    <a
+                      href="https://courier.riocargoexpress.com/assets/images/Terminos_Condiciones_y_Restricciones_Importaciones_China.pdf"
+                      >Términos, condiciones y restricciones</a
+                    >
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const cards = {
